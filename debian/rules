@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+export PYBUILD_NAME=pytorch
+export PYBUILD_DISABLE_python2=1 # No more Python2 Packages
+export USE_FBGEMM=0
+export BUILD_TEST=0
+export BUILD_BINARY=1
+export NO_CUDA=1
+export PYBUILD_DISABLE=test
+export DEB_BUILD_OPTIONS+=nocheck
+export DEB_BUILD_OPTIONS+=noddebs
+
+name = ${PYBUILD_NAME}
+topdir = $(shell pwd)
+buildroot = ${topdir}/debian/tmp
+_libdir ?= /usr/lib
+_includedir ?= /usr/include
+_sharedir ?= /usr/share
+packagingdir = ${topdir}/packaging
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_python3:
+	dh_python3 --no-ext-rename
+
+override_dh_auto_clean:
+	dh_auto_clean
+	-find . -type d -name __pycache__ -exec rm -rf '{}' +
+
+override_dh_auto_test:
+	# no tests to be run
+	echo "No tests to be run"
+
+override_dh_test:
+	# no tests to be run
+	echo "No tests to be run"
+
+override_dh_auto_install:
+	dh_auto_install
+	dh_testdir
+	dh_testroot
+
+	install -d ${buildroot}
+	install -d ${buildroot}${_libdir} # all .a and .so in here
+	install -d ${buildroot}${_includedir}/torch
+	install -d ${buildroot}${_sharedir}/torch
+	install -d ${buildroot}${_libdir}/pkgconfig
