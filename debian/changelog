@@ -1,0 +1,5 @@
+pytorch (1.0.1-1) xenial; urgency=medium
+
+  * Initial debian dist files added
+
+ -- Parichay Kapoor <pk.kapoor@samsung.com>  Fri, 10 May 2019 17:52:02 +0900

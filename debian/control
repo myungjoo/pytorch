@@ -1,0 +1,35 @@
+Source: pytorch
+Section: devel
+Homepage: https://pytorch.org/
+Priority: optional
+Standards-Version: 1.0.1-1
+Maintainer: Parichay Kapoor <pk.kapoor@samsung.com>
+Build-Depends:
+ cmake,
+ debhelper (>= 9~),
+ dh-python,
+ git,
+ libasio-dev,
+ libblas-dev | libblas.so,
+ python,
+ python-yaml,
+ python3-all,
+ python3-all-dev,
+ python3-cffi,
+ python3-numpy,
+ python3-setuptools,
+ python3-yaml,
+
+Package: pytorch
+Architecture: any
+Multi-Arch: foreign
+Depends:
+ python3 (>= 3.5),
+ python3-cffi,
+ python3-numpy,
+ ${misc:Depends},
+ ${shlibs:Depends},
+ ${python3:Depends},
+Suggests:
+ intel-mkl,
+Description: Tensors and Dynamic neural networks with GPU acceleration
