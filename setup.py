@@ -463,7 +463,7 @@ class clean(distutils.command.clean.clean):
     def run(self):
         import glob
         import re
-        with open('.gitignore', 'r') as f:
+        with open('CleanList.txt', 'r') as f:
             ignores = f.read()
             pat = re.compile(r'^#( BEGIN NOT-CLEAN-FILES )?')
             for wildcard in filter(None, ignores.split('\n')):
