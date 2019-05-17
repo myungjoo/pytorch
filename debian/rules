@@ -17,6 +17,35 @@ _includedir ?= /usr/include
 _sharedir ?= /usr/share
 packagingdir = ${topdir}/packaging
 
+THP01=pybind11.tar.gz
+THP02=cub.tar.gz
+THP03=eigen.tar.gz
+THP04=googletest.tar.gz
+THP05=benchmark.tar.gz
+THP06=protobuf.tar.gz
+THP07=ios-cmake.tar.gz
+THP08=NNPACK.tar.gz
+THP09=gloo.tar.gz
+THP10=pthreadpool.tar.gz
+THP11=FXdiv.tar.gz
+THP12=FP16.tar.gz
+THP13=psimd.tar.gz
+THP14=zstd.tar.gz
+THP15=cpuinfo.tar.gz
+THP16=python-enum.tar.gz
+THP17=python-peachpy.tar.gz
+THP18=python-six.tar.gz
+THP19=onnx.tar.gz
+THP20=onnx-tensorrt.tar.gz
+THP21=sleef.tar.gz
+THP22=ideep.tar.gz
+THP23=nccl.tar.gz
+THP24=gemmlowp.tar.gz
+THP25=QNNPACK.tar.gz
+THP26=neon2sse.tar.gz
+THP27=fbgemm.tar.gz
+THP28=foxi.tar.gz
+
 %:
 	dh $@ --with python3 --buildsystem=pybuild
 
@@ -34,6 +63,38 @@ override_dh_auto_test:
 override_dh_test:
 	# no tests to be run
 	echo "No tests to be run"
+
+override_dh_auto_configure:
+	tar -xf ${packagingdir}/${THP01} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP02} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP03} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP04} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP05} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP06} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP07} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP08} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP09} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP10} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP11} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP12} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP13} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP14} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP15} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP16} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP17} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP18} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP19} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP20} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP21} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP22} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP23} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP24} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP25} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP26} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP27} -C ${topdir}/third_party/
+	tar -xf ${packagingdir}/${THP28} -C ${topdir}/third_party/
+	dh_testdir
+	dh_auto_configure
 
 override_dh_auto_install:
 	dh_auto_install
