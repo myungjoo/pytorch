@@ -1,4 +1,4 @@
-pytorch (1.0.1-1) xenial; urgency=medium
+pytorch (1.1.0) xenial; urgency=medium
 
   * Initial debian dist files added
 

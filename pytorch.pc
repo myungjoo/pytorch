@@ -6,6 +6,6 @@ sharedlibdir=${prefix}/share
 
 Name: pytorch
 Description: pytorch static library
-Version: 1.0.1
+Version: 1.1.0
 Libs: -L${libdir} -L${sharedlibdir} -lc10 -lcaffe2 -ltorch
 Cflags: -I${includedir}/torch
