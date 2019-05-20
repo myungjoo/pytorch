@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+sharedlibdir=${prefix}/share
+
+Name: caffe2
+Description: caffe2 static library
+Version: 1.1.0
+Libs: -L${libdir} -L${sharedlibdir} -lc10 -lcaffe2 -ltorch
+Cflags: -I${includedir}/torch

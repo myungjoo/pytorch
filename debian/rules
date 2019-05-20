@@ -95,14 +95,3 @@ override_dh_auto_configure:
 	tar -xf ${packagingdir}/${THP28} -C ${topdir}/third_party/
 	dh_testdir
 	dh_auto_configure
-
-override_dh_auto_install:
-	dh_auto_install
-	dh_testdir
-	dh_testroot
-
-	install -d ${buildroot}
-	install -d ${buildroot}${_libdir} # all .a and .so in here
-	install -d ${buildroot}${_includedir}/torch
-	install -d ${buildroot}${_sharedir}/torch
-	install -d ${buildroot}${_libdir}/pkgconfig
