@@ -1,4 +1,5 @@
-debian/pytorch/usr/lib/python3.5/dist-packages/torch/include/* usr/include
-debian/pytorch/usr/lib/python3.5/dist-packages/torch/share/* usr/share
-debian/pytorch/usr/lib/python3.5/dist-packages/torch/lib/* usr/lib
+debian/pytorch/usr/lib/python3.*/dist-packages/torch/include/* usr/include
+debian/pytorch/usr/lib/python3.*/dist-packages/torch/share/* usr/share
+debian/pytorch/usr/lib/python3.*/dist-packages/torch/lib/* usr/lib
 pytorch.pc usr/lib/pkgconfig
+caffe2.pc usr/lib/pkgconfig
