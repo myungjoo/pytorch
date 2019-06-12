@@ -1450,7 +1450,7 @@ if _enabled:
                       return input
         """
         def __init__(self, optimize=True):
-            self.__dict__['_c'] = torch._C.ScriptModule()
+            self.__dict__['_c'] = torch._C.ScriptModule(type(self).__name__)
             Module.__init__(self)
             self._c._set_optimized(optimize)
             self._parameters = OrderedParameterDict(self._c)
